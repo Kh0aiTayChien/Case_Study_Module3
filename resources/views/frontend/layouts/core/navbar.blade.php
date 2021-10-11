@@ -1,10 +1,10 @@
 <nav id="navbar" class="navbar">
     <ul>
         <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-        <li><a class="nav-link scrollto" href="#features">App Features</a></li>
-        <li><a class="nav-link scrollto" href="#gallery">Gallery</a></li>
-        <li><a class="nav-link scrollto" href="#pricing">Pricing</a></li>
-        <li><a class="nav-link scrollto" href="#faq">F.A.Q</a></li>
+        <li><a class="nav-link scrollto" href="#features">Giới thiệu</a></li>
+        <li><a class="nav-link scrollto" href="#gallery">Dịch vụ </a></li>
+        <li><a class="nav-link scrollto" href="#pricing">Gía cả </a></li>
+        <li><a class="nav-link scrollto" href="#faq">Liên hệ </a></li>
         <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
                 <li><a href="#">Drop Down 1</a></li>
@@ -22,8 +22,9 @@
                 <li><a href="#">Drop Down 4</a></li>
             </ul>
         </li>
-        <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-        <li><a class="getstarted scrollto" href="#features">Get Started</a></li>
+        <li><a class="nav-link scrollto" href="#contact">Liên hệ </a></li>
+        <li><a class="getstarted scrollto" href="#features">Đăng nhập</a></li>
+        <li><a class="getstarted scrollto" href="#features">Đăng kí </a></li>
     </ul>
     <i class="bi bi-list mobile-nav-toggle"></i>
 </nav><!-- .navbar -->

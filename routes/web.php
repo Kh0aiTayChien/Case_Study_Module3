@@ -24,3 +24,7 @@ Route::get('/admin', function () {
 Route::get('/admin/manager', function () {
     return view('backend.dashboard');
 });
+
+Route::get('/user', function (){
+    return view('frontend.user.userhomepage');
+});
