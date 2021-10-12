@@ -21,13 +21,20 @@ class ProviderController extends Controller
         return view('backend.providers.create');
     }
 
-
     public function store(Request $request)
     {
         $provider = new Provider();
         $provider->name = $request->input('name');
-        $provider->image = $request->input('image');
-        $provider->avatar = $request->input('avatar');
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $path = $image->store('img', 'public');
+            $provider->image = $path;
+        }
+        if ($request->hasFile('avatar')) {
+            $avatar = $request->file('avatar');
+            $path = $avatar->store('avatar', 'public');
+            $provider->avatar = $path;
+        }
         $provider->age = $request->input('age');
         $provider->birth_day = $request->input('birth_day');
         $provider->gender = $request->input('gender');
@@ -57,28 +64,16 @@ class ProviderController extends Controller
     public function update(Request $request, $id)
     {
         $provider = Provider::findOrFail($id);
-        $provider = new Provider();
         $provider->name = $request->input('name');
-        $fileImage = $request->inputFile;
-        if (!$request->hasFile('inputFile')) {
-            $provider->image = $fileImage;
-        } else {
-            $fileExtension = $fileImage->getClientOriginalExtension();
-            $fileNameImage = $request->inputFileNameImage;
-            $newFileImage = "$fileNameImage.$fileExtension";
-            $request->file('inputFile')->storeAs('public/images', $newFileImage);
-            $provider->image = $newFileImage;
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $path = $image->store('img', 'public');
+            $provider->image = $path;
         }
-
-        $fileAvatar = $request->inputFile;
-        if (!$request->hasFile('inputFile')) {
-            $provider->avatar = $fileAvatar;
-        } else {
-            $fileExtension = $fileAvatar->getClientOriginalExtension();
-            $fileNameAvatar = $request->inputFileNameAvatar;
-            $newFileAvatar = "$fileNameAvatar.$fileExtension";
-            $request->file('inputFile')->storeAs('public/images', $newFileAvatar);
-            $provider->avatar = $newFileAvatar;
+        if ($request->hasFile('avatar')) {
+            $avatar = $request->file('avatar');
+            $path = $avatar->store('avatar', 'public');
+            $provider->avatar = $path;
         }
         $provider->age = $request->input('age');
         $provider->birth_day = $request->input('birth_day');
@@ -93,6 +88,9 @@ class ProviderController extends Controller
         $provider->note = $request->input('note');
         $provider->social_network = $request->input('social_network');
         $provider->save();
+        $message = "Sửa thông tin $request->name thành công";
+        session::flash('success', $message);
+        return redirect()->route('providers.index');
     }
 
 
@@ -102,6 +100,6 @@ class ProviderController extends Controller
         $provider->delete();
         $message = "Xóa thông tin người dùng thành công!";
         session::flash('success', $message);
-        return redirect()->view('providers.index');
+        return redirect()->route('providers.index');
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProviderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,3 +29,20 @@ Route::get('/introduce', function () {
 Route::get('/service', function () {
     return view('frontend.service');
 })->name('service');
+
+Route::get('/contact', function () {
+    return view('frontend.contact');
+})->name('contact');
+
+
+Route::prefix('admin')->group(function () {
+    Route::prefix('providers')->group(function () {
+        Route::get('/', [ProviderController::class, 'index'])->name('providers.index');
+        Route::get('/create', [ProviderController::class, 'create'])->name('providers.create');
+        Route::post('/create', [ProviderController::class, 'store'])->name('providers.store');
+        Route::get('/{id}/destroy', [ProviderController::class, 'destroy'])->name('providers.destroy');
+        Route::get('/{id}/edit', [ProviderController::class, 'edit'])->name('providers.edit');
+        Route::post('/{id}/edit', [ProviderController::class, 'update'])->name('providers.update');
+    });
+
+});

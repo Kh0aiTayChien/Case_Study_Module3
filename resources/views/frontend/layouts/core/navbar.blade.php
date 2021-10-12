@@ -21,11 +21,11 @@
                 <li><a href="#">Đà Nẵng</a></li>
             </ul>
         </li>
-        <li><a class="nav-link scrollto" href="#contact">Liên hệ</a></li>
+        <li><a class="nav-link scrollto" href="{{route('contact')}}">Liên hệ</a></li>
         <li class="dropdown"><a href="#"><span>Người dùng</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-                <li><a href="#">Xem thông tin</a></li>
-                <li><a href="#">Đăng ký thông tin người cung cấp dịch vụ</a></li>
+                <li><a href="{{route('providers.index')}}">Xem thông tin</a></li>
+                <li><a href="{{route('providers.create')}}">Đăng ký thông tin người cung cấp dịch vụ</a></li>
                 <li><a href="#">Đăng ký thông tin khách hàng</a></li>
             </ul>
         </li>

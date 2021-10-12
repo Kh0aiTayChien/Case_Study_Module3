@@ -10,4 +10,9 @@ class Provider extends Model
     use HasFactory;
 
     protected $table = 'providers';
+
+    public function user()
+    {
+        return $this->hasOne(User::class);
+    }
 }
