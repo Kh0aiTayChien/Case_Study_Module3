@@ -9,6 +9,7 @@
             <div class="row">
                 <div class="col-lg-6 d-lg-flex flex-lg-column justify-content-center align-items-stretch pt-5 pt-lg-0 order-2 order-lg-1" data-aos="fade-up">
                     <div>
+                        <a href="{{route('home.index')}}" ></a>
                         <h1> Cho thuê người yêu theo thời gian thực </h1>
                         <h2> Bạn cần thuê bạn gái, bạn trai phục vụ nhu cầu chính đáng ? Liên hệ ngay với chúng tôi! </h2>
                         <a href="#" class="download-btn"><i class="bx bxl-play-store"></i> Google Play</a>

@@ -23,7 +23,8 @@
             </ul>
         </li>
         <li><a class="nav-link scrollto" href="#contact">Liên hệ </a></li>
-        <li><a class="getstarted scrollto" href="#features">Đăng nhập</a></li>
+    
+        <li><a class="getstarted scrollto" href="{{route('login')}}">Đăng nhập</a>
         <li><a class="getstarted scrollto" href="#features">Đăng kí </a></li>
     </ul>
     <i class="bi bi-list mobile-nav-toggle"></i>
